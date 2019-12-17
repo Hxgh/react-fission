@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Button from 'antd/es/button';
-import './App.css';
+import { Button } from 'antd';
 import './App.css';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Button type="primary">Button</Button>
+      </div>
+    );
+  }
+}
 
 export default App;
