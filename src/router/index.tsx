@@ -4,7 +4,7 @@ import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import {Login} from './components';
 import BasicLayout from '../layouts/Layout';
 import routers from './routers';
-import RouerMap from './RouterMap';
+import RouterMap from './RouterMap';
 
 class Auth extends Component<any> {
   render() {
@@ -24,7 +24,7 @@ export default class App extends Component<any> {
           <Route exact path="/" component={Auth} />
           <Route exact path="/login" component={Login} />
           <BasicLayout>
-            <RouerMap routers={routers} />
+            <RouterMap routers={routers} />
           </BasicLayout>
         </Switch>
       </HashRouter>
