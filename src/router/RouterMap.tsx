@@ -12,22 +12,18 @@ export default class RouterMap extends Component<RouterMapOption, any> {
     return (
       <Switch>
         {this.props.routers.map((item, key) => {
-          if (item.children && item.children.length > 0) {
-            return <RouterMap routers={item.children} />;
-          } else {
-            return (
-              <Switch key={key}>
-                <Route
-                  exact
-                  path={item.path}
-                  key={key}
-                  component={item.component}
-                />
-                <Route component={NoMatch} />
-              </Switch>
-            );
-          }
+          return (
+            <Route
+              exact={!(item.routers && item.routers.length > 0)}
+              path={item.path}
+              key={key}
+              render={props => {
+                return <item.component {...props} routers={item.routers} />;
+              }}
+            />
+          );
         })}
+        <Route component={NoMatch} />
       </Switch>
     );
   }

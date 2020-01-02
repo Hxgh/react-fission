@@ -1,13 +1,10 @@
-const users = (state = {}, action: any) => {
+const nums = (state = {}, action: any) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        id: state,
-        name: action.name
-      };
+    case 'SET_NUM':
+      return action.num * 2 - 1;
     default:
       return state;
   }
 };
 
-export default users;
+export default nums;

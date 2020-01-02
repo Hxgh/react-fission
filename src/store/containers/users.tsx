@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUser } from '../actions';
+// import { setUser } from '../actions';
 
 interface UserUIOption {
   (user: any, onClick: any): any;
@@ -29,7 +29,7 @@ mapStateToProps = function(state: any, ownProps: any) {
 let mapDispatchToProps: MapStateToPropsOption;
 mapDispatchToProps = function(dispatch: any) {
   return {
-    onClick: () => dispatch(setUser())
+    // onClick: () => dispatch(setUser())
   };
 };
 

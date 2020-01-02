@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "./Layout.less";
+import styles from "./styles.less";
 
-export default class BasicLayout extends Component<any> {
+export default class LayoutBase extends Component<any> {
   render() {
     return <div className={styles.layout}>{this.props.children}</div>;
   }
