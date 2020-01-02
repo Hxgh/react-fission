@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styles from './styles.less';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { NoMatch } from '../../router/components';
 
 export default class AppLayout extends Component<any> {
   render() {
@@ -26,7 +25,7 @@ export default class AppLayout extends Component<any> {
               />
             );
           })}
-          <Route component={NoMatch} />
+          <Redirect to="/404" />
         </Switch>
       </div>
     );
