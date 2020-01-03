@@ -1,7 +1,8 @@
-const nums = (state = {}, action: any) => {
+const nums = (state = { num: 0 }, action: any) => {
+  const num = state.num;
   switch (action.type) {
     case 'SET_NUM':
-      return action.num * 2 - 1;
+      return { num: num + 1 };
     default:
       return state;
   }

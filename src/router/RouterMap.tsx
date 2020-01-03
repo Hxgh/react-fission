@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-
-import { NoMatch } from './components';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 interface RouterMapOption {
   routers: Array<any>;
@@ -23,7 +21,7 @@ export default class RouterMap extends Component<RouterMapOption, any> {
             />
           );
         })}
-        <Route component={NoMatch} />
+        <Redirect to="/404" />
       </Switch>
     );
   }
