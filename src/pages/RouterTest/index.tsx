@@ -1,60 +1,58 @@
 import React, { Component } from 'react';
-import { createStore } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Button, Input } from 'antd';
+import { connect } from 'react-redux';
 
-// React component
-class Counter extends Component<any> {
+import { setUser } from '../../store/actions';
+
+function mapStateToProps(state: any) {
+  return {
+    num: state.count
+  };
+}
+function mapDispatchToProps(dispatch: any) {
+  return {
+    setClick: (num: Number) => dispatch(setUser(num))
+  };
+}
+
+interface Props {
+  setClick: (num: Number) => void;
+  num: Number;
+}
+interface State {
+  num: Number;
+}
+
+class Counter extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      num: 1
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleClick() {
+    const { setClick } = this.props;
+    const { num } = this.state;
+    setClick(num);
+  }
+  handleChange(e: any) {
+    this.setState({
+      num: e.target.value
+    });
+  }
   render() {
-    const { value, onIncreaseClick } = this.props;
+    const { num } = this.props;
     return (
       <div>
-        <span>{value}</span>
-        <button onClick={onIncreaseClick}>Increase</button>
+        <div>input.state.num：{this.state.num}</div>
+        <div>num：{num}</div>
+        <Input onChange={e => this.handleChange(e)} />
+        <Button onClick={this.handleClick}>Increase</Button>
       </div>
     );
   }
 }
 
-// Action
-const increaseAction = { type: 'increase' };
-
-// Reducer
-function counter(state = { count: 0 }, action: any) {
-  const count = state.count;
-  switch (action.type) {
-    case 'increase':
-      return { count: count + 1 };
-    default:
-      return state;
-  }
-}
-
-// Store
-const store = createStore(counter);
-
-// Map Redux state to component props
-function mapStateToProps(state: any) {
-  return {
-    value: state.count
-  };
-}
-
-// Map Redux actions to component props
-function mapDispatchToProps(dispatch: any) {
-  return {
-    onIncreaseClick: () => dispatch(increaseAction)
-  };
-}
-
-// Connected Component
-const App = connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-export default class Home extends Component<any> {
-  render() {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  }
-}
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
