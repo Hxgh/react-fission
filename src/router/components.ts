@@ -2,6 +2,6 @@ import Login from '../pages/Login';
 import NoMatch from '../pages/404';
 import Home from '../pages/Home';
 import ReduxTest from '../pages/ReduxTest';
-import RouterTest from '../pages/RouterTest';
+import Test from '../pages/Test';
 
-export { Login, NoMatch, Home, ReduxTest, RouterTest };
+export { Login, NoMatch, Home, ReduxTest, Test };

@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
+
 import { Button, Input } from 'antd';
+
 import { connect } from 'react-redux';
-
 import { setUser } from '../../store/actions';
-
-function mapStateToProps(state: any) {
-  return {
-    num: state.counter.count
-  };
-}
-function mapDispatchToProps(dispatch: any) {
-  return {
-    setClick: (num: Number) => dispatch(setUser(num))
-  };
-}
 
 interface Props {
   setClick: (num: Number) => void;
@@ -53,6 +43,17 @@ class Counter extends Component<Props, State> {
       </div>
     );
   }
+}
+
+function mapStateToProps(state: any) {
+  return {
+    num: state.counter.count
+  };
+}
+function mapDispatchToProps(dispatch: any) {
+  return {
+    setClick: (num: Number) => dispatch(setUser(num))
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

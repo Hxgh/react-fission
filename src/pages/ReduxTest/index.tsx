@@ -1,49 +1,59 @@
 import React, { Component } from 'react';
-import styles from './styles.less';
 
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 
 import { connect } from 'react-redux';
 import { setUser } from '../../store/actions';
 
-interface MapDispatchToPropsOption {
-  (state: any, ownProps: any): Object;
+interface Props {
+  setClick: (num: Number) => void;
+  num: Number;
+}
+interface State {
+  num: Number;
 }
 
-interface MapStateToPropsOption {
-  (dispatch: any, ownProps: Object): Object;
-}
-
-let mapStateToProps: MapDispatchToPropsOption;
-mapStateToProps = function(state: any, ownProps: any) {
-  return {
-    num: state.num
-  };
-};
-
-let mapDispatchToProps: MapStateToPropsOption;
-mapDispatchToProps = function(dispatch: any, ownProps: Object) {
-  return {
-    aaaaonClick: () => dispatch(setUser)
-  };
-};
-
-class ReduxTest extends Component<any> {
+class Counter extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      num: 1
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleClick() {
+    const { setClick } = this.props;
+    const { num } = this.state;
+    setClick(num);
+  }
+  handleChange(e: any) {
+    this.setState({
+      num: e.target.value
+    });
+  }
   render() {
-    const { num, aaaaonClick } = this.props;
+    const { num } = this.props;
     return (
-      <div className={styles.redux}>
-        <div>
-          <span>span触发store：</span>
-          <Button onClick={aaaaonClick}>改变</Button>
-        </div>
-        <div>
-          <span>展示：</span>
-          <span>{num}</span>
-        </div>
+      <div>
+        <div>input.state.num：{this.state.num}</div>
+        <div>num：{num}</div>
+        <Input onChange={e => this.handleChange(e)} />
+        <Button onClick={this.handleClick}>Increase</Button>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxTest);
+function mapStateToProps(state: any) {
+  return {
+    num: state.counter.count
+  };
+}
+function mapDispatchToProps(dispatch: any) {
+  return {
+    setClick: (num: Number) => dispatch(setUser(num))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
