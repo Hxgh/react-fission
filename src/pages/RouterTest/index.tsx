@@ -6,7 +6,7 @@ import { setUser } from '../../store/actions';
 
 function mapStateToProps(state: any) {
   return {
-    num: state.count
+    num: state.counter.count
   };
 }
 function mapDispatchToProps(dispatch: any) {
