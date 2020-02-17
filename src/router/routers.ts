@@ -1,6 +1,6 @@
 import AppLayout from '../layouts/LayoutApp';
 
-import { Home, ReduxTest, Test } from './components';
+import { Home, ReduxTest, LifeCycle, Test } from './components';
 
 export default [
   {
@@ -16,6 +16,11 @@ export default [
         title: 'ReduxTest',
         path: '/app/ReduxTest',
         component: ReduxTest
+      },
+      {
+        title: 'LifeCycle',
+        path: '/app/LifeCycle',
+        component: LifeCycle
       },
       {
         title: 'Test',
