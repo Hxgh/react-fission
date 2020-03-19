@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import './App.less';
 import RouterView from './router';
-
 import reducer from './store';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
-const store = createStore(reducer);
+
+//redux & redux-devtools
+const composeEnhancers =
+  (typeof window !== 'undefined' &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+const store = createStore(reducer, /* preloadedState, */ composeEnhancers());
 
 class App extends Component {
   render() {
