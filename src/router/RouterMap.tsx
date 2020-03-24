@@ -9,6 +9,7 @@ export default class RouterMap extends Component<RouterMapOption, any> {
   render() {
     return (
       <Switch>
+        {this.props.children}
         {this.props.routers.map((item, key) => {
           return (
             <Route
@@ -16,7 +17,13 @@ export default class RouterMap extends Component<RouterMapOption, any> {
               path={item.path}
               key={key}
               render={props => {
-                return <item.component {...props} routers={item.routers} />;
+                //auth 来自于utils/auth.ts return权限 控制菜单
+                if ('auth') {
+                  return (
+                    <item.component {...props} routers={item.routers || null} />
+                  );
+                }
+                return <Redirect to="/login" />;
               }}
             />
           );

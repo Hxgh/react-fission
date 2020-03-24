@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import styles from './styles.less';
 
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
+import RouterMap from '../../router/RouterMap';
 
 export default class AppLayout extends Component<any> {
   render() {
     return (
       <div className={styles.appLayout}>
-        <Switch>
+        <RouterMap routers={this.props.routers}>
           <Route
             exact
             path="/app"
@@ -15,18 +16,7 @@ export default class AppLayout extends Component<any> {
               return <Redirect to="/app/home" />;
             }}
           />
-          {this.props.routers.map((item: any, key: any) => {
-            return (
-              <Route
-                exact
-                path={item.path}
-                key={key}
-                component={item.component}
-              />
-            );
-          })}
-          <Redirect to="/404" />
-        </Switch>
+        </RouterMap>
       </div>
     );
   }
