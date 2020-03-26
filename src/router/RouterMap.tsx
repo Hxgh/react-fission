@@ -17,7 +17,7 @@ export default class RouterMap extends Component<RouterMapOption, any> {
               path={item.path}
               key={key}
               render={props => {
-                //auth 来自于utils/auth.ts return权限 控制菜单
+                //auth from utils/auth.ts return权限 控制菜单view
                 if ('auth') {
                   return (
                     <item.component {...props} routers={item.routers || null} />
