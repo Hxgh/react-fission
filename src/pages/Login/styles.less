@@ -1,3 +1,71 @@
 .login {
-  font-size: 14px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  .login-logo {
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    width: 300px;
+    .login-logo-img {
+      height: 70px;
+      width: auto;
+    }
+    .login-logo-title {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      span + span {
+        margin-left: 10px;
+      }
+      span {
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        background-image: -webkit-gradient(
+          linear,
+          left 0,
+          right 0,
+          from(#fff),
+          to(#00498050)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 5px 5px 6px #00498030;
+      }
+    }
+  }
+  .form {
+    position: absolute;
+    top: 35%;
+    right: 15%;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    border: 1px solid #f0f0f0;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    .title {
+      border-bottom: 1px solid #f0f0f0;
+      padding: 15px 0 0 20px;
+    }
+    .content {
+      padding: 20px 20px 0 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      .handle {
+        width: 100%;
+      }
+    }
+  }
+}
+.test {
+  background: red;
+  width: 100px;
+  height: 100px;
 }

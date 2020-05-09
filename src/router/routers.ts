@@ -1,6 +1,6 @@
 import AppLayout from '../layouts/LayoutApp';
 
-import { Home, ReduxTest, LifeCycle, Test, UploadTest } from './components';
+import { Home, Banned, Universe } from './components';
 
 export default [
   {
@@ -10,28 +10,23 @@ export default [
       {
         title: '主页',
         path: '/app/home',
-        component: Home
+        component: Home,
       },
       {
-        title: 'ReduxTest',
-        path: '/app/ReduxTest',
-        component: ReduxTest
+        title: '暂无权限',
+        path: '/app/banned',
+        component: Banned,
       },
       {
-        title: 'LifeCycle',
-        path: '/app/LifeCycle',
-        component: LifeCycle
+        title: '暂无权限',
+        path: '/app/universe',
+        component: Universe,
       },
       {
-        title: 'Test',
-        path: '/app/test',
-        component: Test
+        title: '父子菜单',
+        path: '/app/parent/children',
+        component: Universe,
       },
-      {
-        title: 'UploadTest',
-        path: '/app/UploadTest',
-        component: UploadTest
-      }
-    ]
-  }
+    ],
+  },
 ];

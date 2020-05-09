@@ -1,9 +1,7 @@
 import Login from '../pages/Login';
 import NoMatch from '../pages/NoMatch';
+import Banned from '../pages/NoMatch/Banned';
 import Home from '../pages/Home';
-import ReduxTest from '../pages/ReduxTest';
-import LifeCycle from '../pages/LifeCycle';
-import Test from '../pages/Test';
-import UploadTest from '../pages/UploadTest';
+import Universe from '../pages/Universe';
 
-export { Login, NoMatch, Home, ReduxTest, LifeCycle, Test, UploadTest };
+export { Login, NoMatch, Banned, Home, Universe };

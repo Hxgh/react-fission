@@ -1,7 +1,7 @@
-export const counter = (state = { count: 0 }, action: any) => {
+export const counter = (state = { count: '' }, action: any) => {
   switch (action.type) {
-    case 'SET_NUM':
-      return { count: action.num };
+    case 'SET_MENU_KEY':
+      return { count: action.key };
     default:
       return state;
   }

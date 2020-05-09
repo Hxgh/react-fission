@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import {
+  Redirect,
+  Route,
+  Switch,
+  HashRouter,
+} from 'react-router-dom';
 
 import { Login, NoMatch } from './components';
 import LayoutBase from '../layouts/LayoutBase';
 import routers from './routers';
 import RouterMap from './RouterMap';
 
-export default class App extends Component<any> {
+class App extends Component<any> {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route
             exact
@@ -24,7 +29,9 @@ export default class App extends Component<any> {
             <RouterMap routers={routers} />
           </LayoutBase>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
+
+export default App;

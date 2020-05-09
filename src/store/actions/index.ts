@@ -1,6 +1,6 @@
-export const SET_NUM = 'SET_NUM';
+export const SET_MENU_KEY = 'SET_MENU_KEY';
 
-export const setUser = (num: Number) => ({
-  type: SET_NUM,
-  num
+export const setMenuKey = (key: string) => ({
+  type: SET_MENU_KEY,
+  key
 });

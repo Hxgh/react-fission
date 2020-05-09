@@ -1,3 +1,74 @@
-.appLayout{
+.app-layout {
+  height: 100%;
+  width: 100%;
   background: #f6f7f8;
+  position: relative;
+  z-index: 1;
+  .app-layout-left {
+    position: absolute;
+    height: 100%;
+    width: 240px;
+    transition: width 0.1s;
+    background: #001529;
+    z-index: 2;
+    overflow: auto;
+  }
+  .min-left {
+    width: 80px;
+    transition: width 0.2s;
+  }
+  .app-layout-right {
+    z-index: 1;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    margin-left: 240px;
+    background: #f5f7f9;
+    transition: width 0.1s;
+    .app-layout-top {
+      width: 100%;
+      height: 50px;
+    }
+    .app-layout-main {
+      flex: 1;
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 18px;
+      > div {
+        min-height: 100%;
+        width: 100%;
+        background: #fff;
+        border-radius: 2px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .list {
+        display: flex;
+        flex-flow: column;
+        .list-head {
+          display: flex;
+          align-items: center;
+          > * + * {
+            margin-left: 10px;
+          }
+        }
+        .list-body {
+          margin-top: 20px;
+        }
+      }
+      .edit {
+        padding-left: 0;
+        .ant-page-header {
+          padding-top: 0;
+          padding-bottom: 15px;
+          margin-bottom: 30px;
+          border-bottom: 1px dashed #dfdfdf;
+        }
+      }
+    }
+  }
+  .max-right {
+    margin-left: 80px;
+    transition: width 0.2s;
+  }
 }
