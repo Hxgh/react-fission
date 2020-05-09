@@ -3,7 +3,7 @@ import {
   Redirect,
   Route,
   Switch,
-  HashRouter,
+  BrowserRouter,
 } from 'react-router-dom';
 
 import { Login, NoMatch } from './components';
@@ -14,7 +14,7 @@ import RouterMap from './RouterMap';
 class App extends Component<any> {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           <Route
             exact
@@ -29,7 +29,7 @@ class App extends Component<any> {
             <RouterMap routers={routers} />
           </LayoutBase>
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
