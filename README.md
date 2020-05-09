@@ -1,11 +1,9 @@
 ## React 实验工程
 
-### 测试和学习TypeScrip、React核心及其生态所有功能
-#### Ant Design Pro、UmiJS等会另开项目
+#### 测试和学习TypeScript、React核心及其生态所有功能
+Ant Design Pro、UmiJS等会另开项目
 
-### 已包含核心：React、React-Router、React-Redux（包含redux-devtools-extension）
-
-### 其它：less、axios、js-cookie、antd、nprogress
+### 已包含：React、React-Router、React-Redux（含redux-devtools-extension）&& less、axios、js-cookie、antd、nprogress
 
 略略略~
 
